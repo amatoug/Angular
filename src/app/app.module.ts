@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BorderCardDirective } from './border-card.directive';
 
 @NgModule({
+  // déclarez BorderCardDirective dans le module racine de l'application
+
   declarations: [
-    AppComponent
+    AppComponent,BorderCardDirective
+
   ],
   imports: [
     BrowserModule,
