@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemons';
+import { PokemonsService } from './pokemons.service';
 
 @Component({
   selector: 'detail-pokemon',
@@ -18,20 +18,12 @@ export class DetailPokemonComponent implements OnInit {
 
   // on injecte 'route' pour récupérer les paramètres de l'url,  
   //  et 'router' pour rediriger l'utilisateur.   
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,private pokemonsService : PokemonsService) { }
 
   ngOnInit(): void {
-    // on initialise la liste de nos pokémons   
-    this.pokemons = POKEMONS;
     // on récupère le paramère 'id' contenu dans l'url   
     let id = +this.route.snapshot.paramMap.get('id');
-    // on itère sur le tableau de pokémon ensuite pour trouver  
-    // le pokémon ayant le bon identifiant  
-    for (let i = 0; i < this.pokemons.length; i++) {
-      // si on trouve un pokémon avec le bon identifiant,  
-      // on affecte ce pokémon à la propriété du composant   
-      if (this.pokemons[i].id == id) { this.pokemon = this.pokemons[i]; }
-    }
+    this.pokemon = this.pokemonsService.getPokemon(id); 
   }
 
   goBack(): void {
