@@ -18,16 +18,22 @@ export class DetailPokemonComponent implements OnInit {
 
   // on injecte 'route' pour récupérer les paramètres de l'url,  
   //  et 'router' pour rediriger l'utilisateur.   
-  constructor(private route: ActivatedRoute, private router: Router,private pokemonsService : PokemonsService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private pokemonsService: PokemonsService) { }
 
   ngOnInit(): void {
     // on récupère le paramère 'id' contenu dans l'url   
     let id = +this.route.snapshot.paramMap.get('id');
-    this.pokemon = this.pokemonsService.getPokemon(id); 
+    this.pokemon = this.pokemonsService.getPokemon(id);
   }
 
   goBack(): void {
     this.router.navigate(['/pokemons']);
-    }
-
   }
+
+  // On crée une méthode qui s'occupe de la redirection  
+  goEdit(pokemon: Pokemon): void {
+    let link = ['/pokemon/edit', pokemon.id];
+    this.router.navigate(link);
+  }
+
+}

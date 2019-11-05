@@ -32,7 +32,11 @@
                     </table>
                 </div>
                 <div class="card-action">
-                    <a href="#" (click)="goBack()">Retour</a> </div>
+                    <a href="#" (click)="goBack()">Retour</a>  
+                    <!-- On rajoute un lien vers la page d'édition de ce pokémon -->
+                    <a (click)="goEdit(pokemon)">Editer</a>
+
+                </div>
             </div>
         </div>
     </div>
