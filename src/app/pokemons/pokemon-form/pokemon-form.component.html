@@ -31,12 +31,22 @@
                     <label for="cp">Dégâts</label>
                     <input type="number" class="form-control" id="cp" required pattern="^[0-9]{1,2}$"
                         [(ngModel)]="pokemon.cp" name="cp" #cp="ngModel">
-                   
-                        <!-- error -->
+
+                    <!-- error -->
                     <div [hidden]="hp.valid || hp.pristine" class="card-panel red accent-1">
                         Le cp du pokémon, nombre entre 0 et 999.
                     </div>
                 </div>
+                <!-- Pokemon picture -->
+                <div *ngIf="isAddForm" class="form-group">
+                    <label for="picture">Image</label>
+                     <input type="url" class="form-control" id="picture" required [(ngModel)]="pokemon.picture"
+                        name="picture" #name="ngModel">
+                     <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                        L'image du pokémon est requise.
+                    </div>
+                </div>
+                
                 <!-- Pokemon types -->
                 <form class="form-group">
                     <label for="types">Types</label>

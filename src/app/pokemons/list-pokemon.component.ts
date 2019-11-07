@@ -10,7 +10,7 @@ import { PokemonsService } from './pokemons.service';
 })
 export class ListPokemonComponent implements OnInit {
 
-  constructor(private router: Router,private pokemonsService: PokemonsService) {}
+  constructor(private router: Router, private pokemonsService: PokemonsService) { }
   pokemons: Pokemon[] = null;
 
   ngOnInit() {
@@ -18,7 +18,7 @@ export class ListPokemonComponent implements OnInit {
 
   }
   getPokemons(): void {
-    this.pokemons = this.pokemonsService.getPokemons();
+    this.pokemonsService.getPokemons().subscribe(pokemons => this.pokemons = pokemons);
   }
 
   selectPokemon(pokemon: Pokemon) {

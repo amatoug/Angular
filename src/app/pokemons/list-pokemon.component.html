@@ -9,7 +9,7 @@
           <div class="card-content">
             <p>{{ pokemon.name }}</p>
             <p><small>{{ pokemon.created | date:'dd/MM/yyyy' }}</small></p>
-            <span *ngFor='let type of pokemon.types'  class="{{ type | pokemonTypeColor }}">{{ type }}</span>
+            <span *ngFor='let type of pokemon.types' class="{{ type | pokemonTypeColor }}">{{ type }}</span>
 
           </div>
         </div>
@@ -17,3 +17,8 @@
     </div>
   </div>
 </div>
+<!-- Bouton pour rediriger l’utilisateur vers le formulaire d’ajout -->
+<a class="btn-floating btn-large waves-effect waves-light red z-depth-3"
+  style="position: fixed; bottom: 25px; right: 25px;" routerLink="/pokemon/add" href>
+  <strong>+</strong>
+</a>
