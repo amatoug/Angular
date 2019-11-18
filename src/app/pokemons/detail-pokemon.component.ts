@@ -34,7 +34,7 @@ export class DetailPokemonComponent implements OnInit {
   }
   
   goBack(): void {
-    this.router.navigate(['/pokemons']);
+    this.router.navigate(['/pokemon/all']);
   }
 
   // On crée une méthode qui s'occupe de la redirection  
